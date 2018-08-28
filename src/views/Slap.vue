@@ -4,7 +4,7 @@
       {{target.name}}
       {{target.health}}
       {{target.items}}
-    </h1>
+      </h1>
     <div class="attacks">
       <button 
       v-for="(value, key) in target.attacks"
@@ -15,11 +15,7 @@
       <button @click="reset" v-if="dead">Reset</button>
     </div>
     <div class="items">
-      <button class="item" 
-      v-for="item in availableItems" 
-      :key="item.id"
-      @click="giveItem(item)"
-      >{{item.name}}</button>
+      <button class="item" v-for="item in availableItems" :key="item.id" @click="giveItem(item)">{{item.name}}</button>
     </div>
   </div>
 </template>
@@ -44,12 +40,17 @@ export default {
     },
     reset() {
       this.target.health = 100;
+      this.target.items = []
+      // if (this.target.items.includes(item)) {
+      //   this.target.item.pop(item)
+      // }
     },
     giveItem(item) {
       if (this.target.items.includes(item)) {
         return;
       }
       this.target.items.push(item);
+
     }
   },
   computed: {

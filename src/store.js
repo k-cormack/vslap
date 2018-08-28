@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Target from './models/Target';
+import Target from './models/Target'
+import Machine from './models/Machine'
+
+
 
 Vue.use(Vuex)
 
@@ -33,5 +36,9 @@ export default new Vuex.Store({
       let newHealth = state.target.health - state.target.attacks[payload]
       commit('setHealth', newHealth)
     }
+    addCurrency({ dispatch, commit, state }, payload) {
+      let newPrice = state.item.price
+    }
   }
+
 })

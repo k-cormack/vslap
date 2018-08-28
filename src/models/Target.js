@@ -1,9 +1,9 @@
 
 export default class Target {
   constructor(data) {
-    this.health = data.health
-    this.name = data.name
-    this.attacks = data.attacks
+    this.health = data.health || 0
+    this.name = data.name || ''
+    this.attacks = data.attacks || 0
     this.items = data.items
   }
 
